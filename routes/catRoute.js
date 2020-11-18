@@ -33,7 +33,7 @@ router.get('/', catController.cat_list_get);
 
 router.get('/:id', catController.cat_get);
 
-router.post('/', upload.single('cat'), injectFile, [
+router.post('/', upload.single('cat'), injectFile, catController.make_thumbnail,[
     body('name', 'Nimi vaaditaan').isLength({min:1}),
     body('age', 'Ikä numeroina vaaditaan').isLength({min:1}).isNumeric(),
     body('weight', 'Paino numeroina vaaditaan').isLength({min:1}).isNumeric(),
